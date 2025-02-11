@@ -28,7 +28,8 @@ public class Main
     public static String calc(String input) throws Exception
     {
         int res = 0;
-        String [] args = input.split(" ");
+        String in = input.trim().replaceAll("\t+", " ").replaceAll(" +", " ");
+        String [] args = in.split(" ");
 
         if (args.length != 3)
             throw new Exception("Не верное число аргументов во входной строке");
@@ -55,6 +56,6 @@ public class Main
             default: throw new Exception("Параметр <oper> не является знаком арифметической операции");
         }
 
-        return input + " = " + res;
+        return in + " = " + res;
     }
 }
